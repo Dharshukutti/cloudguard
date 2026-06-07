@@ -1,5 +1,5 @@
 // =============================
-// Dashboard Summary
+// Dashboard Summary + Chart
 // =============================
 
 fetch("http://127.0.0.1:5000/api/dashboard/summary")
@@ -8,17 +8,28 @@ fetch("http://127.0.0.1:5000/api/dashboard/summary")
 
     console.log("SUMMARY DATA:", data);
 
-    document.getElementById("totalUsers").innerText =
-      data.total_users;
+    document.getElementById("totalUsers").innerText = data.total_users;
+    document.getElementById("highRisk").innerText = data.high_risk;
+    document.getElementById("mediumRisk").innerText = data.medium_risk;
+    document.getElementById("lowRisk").innerText = data.low_risk;
 
-    document.getElementById("highRisk").innerText =
-      data.high_risk;
+    // Pie Chart
 
-    document.getElementById("mediumRisk").innerText =
-      data.medium_risk;
+    const ctx = document.getElementById("riskChart");
 
-    document.getElementById("lowRisk").innerText =
-      data.low_risk;
+    new Chart(ctx, {
+      type: "pie",
+      data: {
+        labels: ["High Risk", "Medium Risk", "Low Risk"],
+        datasets: [{
+          data: [
+            data.high_risk,
+            data.medium_risk,
+            data.low_risk
+          ]
+        }]
+      }
+    });
 
   })
   .catch(error => {
@@ -36,8 +47,7 @@ fetch("http://127.0.0.1:5000/api/users")
 
     console.log("USERS DATA:", users);
 
-    const tbody =
-      document.querySelector("#usersTable tbody");
+    const tbody = document.querySelector("#usersTable tbody");
 
     tbody.innerHTML = "";
 

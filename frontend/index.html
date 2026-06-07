@@ -12,22 +12,22 @@
 
     <div class="cards">
 
-        <div class="card">
+        <div class="card total">
             <h2>Total Users</h2>
             <p id="totalUsers">0</p>
         </div>
 
-        <div class="card">
+        <div class="card high">
             <h2>High Risk</h2>
             <p id="highRisk">0</p>
         </div>
 
-        <div class="card">
+        <div class="card medium">
             <h2>Medium Risk</h2>
             <p id="mediumRisk">0</p>
         </div>
 
-        <div class="card">
+        <div class="card low">
             <h2>Low Risk</h2>
             <p id="lowRisk">0</p>
         </div>
@@ -36,9 +36,15 @@
 
     <hr>
 
+    <h2>Risk Distribution</h2>
+
+    <canvas id="riskChart"></canvas>
+
+    <hr>
+
     <h2>Users</h2>
 
-    <table border="1" id="usersTable">
+    <table id="usersTable">
 
         <thead>
             <tr>
@@ -54,6 +60,7 @@
 
     </table>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 
 </body>
