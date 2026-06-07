@@ -75,5 +75,18 @@ def users():
     return jsonify(data)
 
 
+@app.route("/api/report")
+def report():
+
+    with open("data/risk_report.json", "r") as f:
+        data = json.load(f)
+
+    return jsonify({
+        "ReportName": "CloudGuard Security Report",
+        "TotalUsers": len(data),
+        "Users": data
+    })
+
+
 if __name__ == "__main__":
     app.run(debug=True)
