@@ -7,7 +7,21 @@ risk_report = []
 
 for user in users:
 
-    score = user["RiskScore"]
+    score = 0
+
+    # Rule 1 - Admin Access
+    if user["IsAdmin"]:
+        score += 30
+
+    # Rule 2 - MFA Disabled
+    if not user["MFAEnabled"]:
+        score += 20
+
+    # Rule 3 - User Unused > 90 Days
+    if user["UnusedDays"] > 90:
+        score += 40
+
+    # Final Status
 
     if score >= 50:
         status = "Critical"
@@ -25,4 +39,4 @@ for user in users:
 with open("data/risk_report.json", "w") as f:
     json.dump(risk_report, f, indent=4)
 
-print("Risk report generated!") 
+print("Risk report generated successfully!")

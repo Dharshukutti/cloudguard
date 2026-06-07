@@ -7,25 +7,25 @@ analysis = []
 
 for user in users:
 
-    risk_score = 0
-    risk_level = "Low"
+    is_admin = False
+    mfa_enabled = True
+    unused_days = 0
 
-    # Simple demo logic
-    if "admin" in user["UserName"].lower():
-        risk_score += 50
+    username = user["UserName"]
 
-    if risk_score >= 50:
-        risk_level = "High"
-    elif risk_score >= 20:
-        risk_level = "Medium"
+    # Demo Rules
+
+    if "admin" in username.lower():
+        is_admin = True
 
     analysis.append({
-        "UserName": user["UserName"],
-        "RiskScore": risk_score,
-        "RiskLevel": risk_level
+        "UserName": username,
+        "IsAdmin": is_admin,
+        "MFAEnabled": mfa_enabled,
+        "UnusedDays": unused_days
     })
 
 with open("data/analyzed_permissions.json", "w") as f:
     json.dump(analysis, f, indent=4)
 
-print(" Policy analysis completed!")
+print("Policy analysis completed!")

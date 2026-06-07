@@ -3,8 +3,6 @@ from flask_cors import CORS
 import json
 
 app = Flask(__name__)
-
-# Enable CORS
 CORS(app)
 
 
@@ -62,6 +60,17 @@ def users():
 
     with open("data/risk_report.json", "r") as f:
         data = json.load(f)
+
+    for user in data:
+
+        if user["Status"] == "Critical":
+            user["Reason"] = "Admin access or inactive account"
+
+        elif user["Status"] == "Medium":
+            user["Reason"] = "Requires security review"
+
+        else:
+            user["Reason"] = "MFA enabled and active user"
 
     return jsonify(data)
 
