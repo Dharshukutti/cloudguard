@@ -57,5 +57,14 @@ def summary():
     })
 
 
+@app.route("/api/users")
+def users():
+
+    with open("data/risk_report.json", "r") as f:
+        data = json.load(f)
+
+    return jsonify(data)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
