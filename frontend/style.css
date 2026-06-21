@@ -16,3 +16,14 @@
 .download-btn:hover {
     opacity: 0.9;
 }
+
+/* Modal + dropdown styles used by script.js */
+.cg-modal-overlay { }
+.cg-modal-box { }
+.dropdown-panel { background: var(--bg-glass); border:1px solid var(--border-glass); border-radius:8px; padding:6px; }
+
+/* Simple adjustments for action buttons inside panels */
+.dropdown-panel .btn { width:100%; }
+
+/* small responsive */
+@media (max-width:600px){ .dropdown-panel{ right:12px !important; left:12px !important; width:auto !important; } }
