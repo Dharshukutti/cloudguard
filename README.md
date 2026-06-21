@@ -88,7 +88,7 @@ Track security-related events and activities.
 ## Deployment
 
 Live Project:
-(Add your Netlify URL here)
+https://6a379129af7c92cc0467c684--clouguard.netlify.app/templates/cloudguard_dashboard.html
 
 GitHub Repository:
 https://github.com/Dharshukutti/cloudguard
