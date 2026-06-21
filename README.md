@@ -82,6 +82,24 @@ Monitor compliance and security control status.
 ### Audit Logs
 
 Track security-related events and activities.
+## Dashboard Preview
+
+### Login Page
+
+
+![Login Page](C:\Users\Priyadharshini.R\cloudguard\screenshots)
+
+### Dashboard
+![Dashboard](C:\Users\Priyadharshini.R\cloudguard\screenshots)
+
+### Compliance
+![Compliance](C:\Users\Priyadharshini.R\cloudguard\screenshots)
+
+### Audit Logs
+![Audit Logs](C:\Users\Priyadharshini.R\cloudguard\screenshots)
+
+### Security Reports
+![Security Reports](C:\Users\Priyadharshini.R\cloudguard\screenshots)
 
 ---
 
